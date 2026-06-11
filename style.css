@@ -1,0 +1,663 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background: #f8f7f3;
+  color: #050505;
+  overflow-x: hidden;
+  font-weight: 200;
+}
+
+.page {
+  min-height: 100vh;
+  position: relative;
+
+  padding: 55px 60px;
+
+  background-image: url("assets/grid-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* ======================
+   HERO
+====================== */
+
+.hero h1 {
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 1;
+  font-weight: 200;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: #ff5d63;
+}
+
+.hero p {
+  margin-top: 14px;
+
+  font-size: clamp(13px, 1.2vw, 19px);
+  line-height: 1.25;
+
+  font-weight: 200;
+}
+
+.hero p em {
+  color: #b8cf2d;
+  font-style: normal;
+}
+
+
+/* ======================
+   SIDE TEXT
+====================== */
+
+.side-title {
+  position: fixed;
+
+  top: 45px;
+  right: 38px;
+
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  font-size: clamp(28px, 3vw, 48px);
+  line-height: 1;
+
+  font-weight: 200;
+  letter-spacing: -2px;
+}
+
+
+/* ======================
+   PROJECTS
+====================== */
+
+.projects-section {
+  position: absolute;
+
+  left: 60px;
+  bottom: 70px;
+}
+
+.projects-section h2 {
+
+  font-size: 22px;
+  font-weight: 200;
+
+  margin-bottom: 20px;
+}
+.folders {
+  display: flex;
+  gap: 55px;
+  align-items: flex-start;
+}
+
+.folder-card {
+  width: 80px;
+  text-decoration: none;
+  color: #050505;
+  text-align: center;
+}
+
+.folder-card img {
+  width: 80px;
+  height: 70px;
+  display: block;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.folder-card p {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 200;
+}
+
+
+/* ======================
+   SERVICES
+====================== */
+
+
+.services {
+
+  position: absolute;
+
+  left: 60px;
+  bottom: 24px;
+
+font-size: clamp(12px, 1.2vw, 16px);
+  font-weight: 200;
+
+  letter-spacing: -1px;
+}
+
+
+
+/* ======================
+   BOTTOM ICONS
+====================== */
+
+
+.bottom-icons {
+
+  position: fixed;
+
+  right: 38px;
+  bottom: 30px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.bottom-icons img {
+
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+
+.bottom-icons button {
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+/* ======================
+   MAIL + TERMINAL HOVER
+====================== */
+
+.bottom-icons img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+
+  transition: transform 0.25s ease;
+}
+
+
+.bottom-icons a:hover img,
+.bottom-icons button:hover img {
+  transform: scale(1.12);
+}
+
+/* ======================
+   MAIL MODAL
+====================== */
+
+.mail-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+/* OVERLAY */
+
+.mail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.mail-modal.active {
+  display: flex;
+}
+
+
+/* WINDOW */
+
+.mail-window {
+  width: min(850px, 92vw);
+  height: min(650px, 82vh);
+
+  background: #292929;
+  border: 1px solid #555;
+  border-radius: 20px;
+
+  overflow: hidden;
+  color: #e8e8e8;
+
+  font-family: "Space Mono", monospace;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  transform-origin: bottom right;
+
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    border-radius 0.35s ease,
+    transform 0.65s cubic-bezier(.16, 1, .3, 1),
+    opacity 0.45s ease;
+}
+
+
+.mail-window.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+}
+
+
+/* TOP BAR */
+
+.mail-topbar {
+  height: 54px;
+  min-height: 54px;
+
+  background: #262626;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid #3d3d3d;
+}
+
+
+/* MAC BUTTONS */
+
+.window-dot {
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+  border: none;
+
+  cursor: pointer;
+  padding: 0;
+
+  flex-shrink: 0;
+
+  transition: transform 0.2s ease;
+}
+
+.window-dot:hover {
+  transform: scale(1.2);
+}
+
+.window-dot.close {
+  background: #ff5f57;
+}
+
+.window-dot.minimize {
+  background: #febc2e;
+}
+
+.window-dot.expand {
+  background: #28c840;
+}
+
+
+/* SEND BUTTON */
+
+.send-btn {
+  margin-left: auto;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #149cff;
+  color: white;
+
+  font-size: 26px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.25s ease;
+}
+
+.send-btn:hover {
+  transform: scale(1.1);
+}
+
+
+/* ROWS */
+
+.mail-row {
+  display: flex;
+  align-items: center;
+
+  min-height: 58px;
+
+  border-bottom: 1px solid #444;
+
+  padding: 0 20px;
+  gap: 14px;
+
+  flex-shrink: 0;
+}
+
+.mail-row label {
+  width: 75px;
+
+  color: #aaa;
+
+  font-size: 15px;
+  font-weight: 200;
+
+  flex-shrink: 0;
+}
+
+.mail-row input {
+  flex: 1;
+
+  background: transparent;
+
+  border: none;
+  outline: none;
+
+  color: #f2f2f2;
+
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.mail-row input::placeholder {
+  color: #777;
+}
+
+
+/* MESSAGE AREA */
+
+.mail-window textarea {
+  flex: 1;
+
+  width: 100%;
+
+  resize: none;
+
+  background: transparent;
+
+  border: none;
+  outline: none;
+
+  padding: 22px;
+
+  color: #f2f2f2;
+
+  font-family: "Space Mono", monospace;
+  font-size: 15px;
+  font-weight: 200;
+
+  line-height: 1.5;
+}
+
+.mail-window textarea::placeholder {
+  color: #777;
+}
+
+
+/* ======================
+   TERMINAL MODAL
+====================== */
+
+.terminal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.terminal-modal.active {
+  display: flex;
+}
+
+.terminal-window {
+  width: min(880px, 92vw);
+  height: min(560px, 78vh);
+
+  background: #171717;
+  border: none;
+  border-radius: 24px;
+
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-window.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+}
+
+.terminal-topbar {
+  height: 42px;
+  min-height: 42px;
+
+  background: #252525;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 18px;
+  gap: 8px;
+
+  border-bottom: 1px solid #111;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+  border: none;
+
+  cursor: pointer;
+  padding: 0;
+
+  background: #9d9d9d;
+
+  transition: transform 0.2s ease;
+}
+
+.terminal-dot:hover {
+  transform: scale(1.15);
+}
+
+.terminal-dot.close {
+  background: #ff5f57;
+}
+
+.terminal-dot.minimize {
+  background: #febc2e;
+}
+
+.terminal-dot.expand {
+  background: #28c840;
+}
+
+.terminal-topbar p {
+  margin-left: 18px;
+
+  color: #f2f2f2;
+
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+.terminal-body {
+  flex: 1;
+
+  padding: 28px 40px;
+
+  overflow-y: auto;
+}
+
+.terminal-body pre {
+  margin: 0;
+
+  color: #f2f2f2;
+
+  font-family: "Space Mono", monospace;
+  font-size: clamp(15px, 1.6vw, 24px);
+  line-height: 1.55;
+
+  white-space: pre-wrap;
+}
+
+.yellow {
+  color: #ffe45c;
+}
+
+.blue {
+  color: #50b4ff;
+}
+
+.red {
+  color: #ff5f66;
+}
+
+.cursor {
+  display: inline-block;
+
+  width: 9px;
+  height: 22px;
+
+  background: #f2f2f2;
+
+  animation: blink 0.85s steps(1) infinite;
+
+  transform: translateY(4px);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+.scramble {
+  color: #ff5d63;
+}
+/* ======================
+   MOBILE
+====================== */
+
+
+@media(max-width:850px){
+
+
+.page {
+
+  padding:35px 24px;
+
+}
+
+
+.hero h1 {
+
+  font-size:42px;
+  letter-spacing:-1px;
+
+}
+
+
+.hero p {
+
+  font-size:14px;
+
+}
+
+
+.side-title {
+
+  position:absolute;
+
+  top:30px;
+  right:20px;
+
+  font-size:28px;
+
+}
+
+
+.projects-section {
+
+  position:relative;
+
+  left:auto;
+  bottom:auto;
+
+  margin-top:180px;
+
+}
+
+
+.folders {
+
+  flex-wrap:wrap;
+  gap:30px;
+
+}
+
+
+.folder-card img {
+
+  width:120px;
+
+}
+
+
+.services {
+
+  position:relative;
+
+  left:auto;
+  bottom:auto;
+
+  margin-top:35px;
+
+  font-size:18px;
+
+}
+
+}
