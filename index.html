@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kate's Archive</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page">
+
+    <section class="hero">
+      <h1>
+        I DESIGN<br>
+        DIGITAL EXPERIENCES<br>
+        THAT FEEL <span>GOOD</span>
+      </h1>
+
+      <p>
+        Websites, interactions and brands<br>
+        that are aesthetic, functional and<br>
+        <em>unforgettable.</em>
+      </p>
+    </section>
+
+    <div class="side-title">KATE’S ARCHIVE</div>
+
+    <section class="projects-section">
+      <h2>PROJECTS</h2>
+
+      <div class="folders">
+        <a href="#" class="folder-card">
+          <img src="assets/folder-closed.png" alt="Project folder">
+          <p>PROJECTS</p>
+        </a>
+
+        <a href="#" class="folder-card">
+          <img src="assets/folder-closed.png" alt="Project folder">
+          <p>PROJECTS</p>
+        </a>
+
+        <a href="#" class="folder-card">
+          <img src="assets/folder-closed.png" alt="Project folder">
+          <p>PROJECTS</p>
+        </a>
+
+        <a href="#" class="folder-card">
+          <img src="assets/folder-closed.png" alt="Project folder">
+          <p>PROJECTS</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="services">
+      STRATEGY | DESIGN | DEVELOPMENT
+    </div>
+
+    <div class="bottom-icons">
+<button class="mail-btn" id="mailBtn">
+  <img src="assets/mail-icon.png" alt="Email">
+</button>
+
+      <button id="terminalBtn">
+        <img src="assets/terminal-icon.png" alt="Terminal">
+      </button>
+    </div>
+
+
+  <div class="mail-modal" id="mailModal">
+  <div class="mail-window" id="mailWindow">
+
+    <div class="mail-topbar">
+      <button class="window-dot close" id="closeMail" aria-label="Close"></button>
+      <button class="window-dot minimize" id="minimizeMail" aria-label="Minimize"></button>
+      <button class="window-dot expand" id="expandMail" aria-label="Expand"></button>
+
+      <button class="send-btn" type="button">↑</button>
+    </div>
+
+    <div class="mail-row">
+      <label>To:</label>
+      <input type="email" value="hello@email.com" readonly>
+    </div>
+
+    <div class="mail-row">
+      <label>Subject:</label>
+      <input type="text" value="Hey, Kate! Let's create something epic." readonly>
+    </div>
+
+    <div class="mail-row">
+      <label>From:</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+
+    <textarea>I have a website idea, and I think you’re the right person to make it actually look good.</textarea>
+
+  </div>
+</div>
+
+
+<div class="terminal-modal" id="terminalModal">
+  <div class="terminal-window" id="terminalWindow">
+
+    <div class="terminal-topbar">
+      <button class="terminal-dot close" id="closeTerminal" aria-label="Close"></button>
+      <button class="terminal-dot minimize" id="minimizeTerminal" aria-label="Minimize"></button>
+      <button class="terminal-dot expand" id="expandTerminal" aria-label="Expand"></button>
+
+      <p>styles.css</p>
+    </div>
+
+    <div class="terminal-body">
+      <pre><span class="yellow">.skills</span> <span class="yellow">{</span>
+  <span class="blue">creativity</span>: <span class="red">130%</span>;
+  <span class="blue">problem-solving</span>: <span class="red">100%</span>;
+  <span class="blue">caffeine</span>: <span class="red">infinite</span>;
+<span class="yellow">}</span>
+
+<span class="yellow">.contact</span> <span class="yellow">{</span>
+  <span class="blue">email</span>: <span class="red">kate@gmail.com</span>;
+  <span class="blue">phone-number</span>: <span class="red">1234-567-89</span>;
+<span class="yellow">}</span>
+
+<span class="cursor"></span></pre>
+    </div>
+
+  </div>
+</div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
