@@ -27,29 +27,45 @@ const closeTerminal = document.getElementById("closeTerminal");
 const minimizeTerminal = document.getElementById("minimizeTerminal");
 const expandTerminal = document.getElementById("expandTerminal");
 
+function resetTerminalWindow() {
+  terminalWindow.classList.remove("fullscreen");
+  terminalWindow.style.transform = "";
+  terminalWindow.style.opacity = "";
+}
+
+/* OPEN */
+
 terminalBtn.addEventListener("click", () => {
   terminalModal.classList.add("active");
-  terminalWindow.classList.remove("fullscreen");
+  resetTerminalWindow();
 });
+
+/* RED BUTTON - CLOSE */
 
 closeTerminal.addEventListener("click", () => {
   terminalModal.classList.remove("active");
-  terminalWindow.classList.remove("fullscreen");
+  resetTerminalWindow();
 });
+
+/* YELLOW BUTTON - MINIMIZE (JUST CLOSE) */
 
 minimizeTerminal.addEventListener("click", () => {
   terminalModal.classList.remove("active");
-  terminalWindow.classList.remove("fullscreen");
+  resetTerminalWindow();
 });
+
+/* GREEN BUTTON - FULLSCREEN */
 
 expandTerminal.addEventListener("click", () => {
   terminalWindow.classList.toggle("fullscreen");
 });
 
+/* CLICK OUTSIDE TO CLOSE */
+
 terminalModal.addEventListener("click", e => {
   if (e.target === terminalModal) {
     terminalModal.classList.remove("active");
-    terminalWindow.classList.remove("fullscreen");
+    resetTerminalWindow();
   }
 });
 
